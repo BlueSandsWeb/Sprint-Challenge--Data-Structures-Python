@@ -18,9 +18,9 @@ start_time = time.time()
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
-# mine
 
-# Algo 1:
+# ================================================ ALGO 1 ======================================================== #
+
 # O(n log(n) + n log(n)) => O(n log n):
 # description: try making a binary search for each using names as numbers.
 # steps:
@@ -71,14 +71,12 @@ class BinarySearchTree:
                 return False
 
 tree = BinarySearchTree()
-f = open('names_1.txt', 'r')
+f = open('names_1.txt', 'r')  # List containing 10000 names
 for line in f:
     tree.insert(line)
 f.close()
 
 duplicates = []
-
-# print(tree.contains("Jean Velazquez"))
 
 f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
@@ -92,9 +90,10 @@ end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
 
+# ================================================ ALGO 2 ======================================================== #
 
-# Algo 2:
-# O(n) ish
+# !!RUNTIME WINNER!!
+# runtime: O(n) ish
 # import the first list of names as a list
 # make one of the names a lookup table when it's imported by making it a set
 # loop through all of the names from list one and look for them in list two
